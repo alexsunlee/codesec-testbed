@@ -100,11 +100,27 @@ report 9 and miss the tenth.
 **Clean controls:** `aws_s3_bucket.compliant` with its encryption and
 public-access-block resources, and `codesec-testbed-api-hardened`.
 
-## License - 1 planted conflict
+## License - 4 planted conflicts, 2 clean controls
 
-| File | Planted |
-|---|---|
-| `license/vendor/libcopyleft/` | GPL-3.0-only library vendored into an Apache-2.0 project, declared in metadata and present as verbatim licence text |
+The project is Apache-2.0. Every row below is a licence a normal corporate
+policy restricts, sitting inside it.
+
+| File | Package | Declared | Planted |
+|---|---|---|---|
+| `license/vendor/libcopyleft/` | libcopyleft 2.4.0 | `GPL-3.0-only` | Strong copyleft vendored into an Apache-2.0 project, declared in metadata and present as verbatim licence text |
+| `license/vendor/libnetcopyleft/` | libnetcopyleft 1.3.0 | `AGPL-3.0-only` | Network copyleft - section 13 reaches users served over a network, so a SaaS deployment triggers it without any distribution |
+| `license/vendor/libsourceavailable/` | libsourceavailable 4.0.1 | `SSPL-1.0` | Source-available and **not OSI-approved**; a different classification path from OSI copyleft |
+| `license/package-lock.json` | highcharts 13.1.0 | `https://www.highcharts.com/license` | Commercial licence declared as a bare URL rather than an SPDX identifier, reached through real dependency resolution rather than a vendored directory |
+
+Each vendored directory carries both the metadata declaration and the canonical
+SPDX text, so metadata matching and text matching should each find it alone.
+
+**Clean controls - flagging either of these is over-reporting.**
+
+| File | Package | Declared | Why it is clean |
+|---|---|---|---|
+| `license/package-lock.json` | jszip 3.10.2 | `(MIT OR GPL-3.0-or-later)` | Dual licence; the permissive branch is available, so the `OR` must be resolved in the project's favour |
+| `license/package-lock.json` | pako 1.0.11 (transitive) | `(MIT AND Zlib)` | Compound `AND` of two permissive licences, reached only through jszip |
 
 ## CI/CD posture - 5 planted (no engine today)
 
