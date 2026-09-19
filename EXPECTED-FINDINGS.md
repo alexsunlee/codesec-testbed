@@ -5,7 +5,7 @@ Database (reviewed advisories only) as of 2026-09-19. Use this to diff a scan
 result against what was actually planted - both for missed findings and for
 findings on the clean controls.
 
-## SCA - 9 ecosystems, 16 planted vulnerable packages
+## SCA - 9 ecosystems, 17 planted vulnerable packages
 
 | Ecosystem | File | Package | Pinned | GHSA | CVE | Severity | Fixed in |
 |---|---|---|---|---|---|---|---|
@@ -14,6 +14,7 @@ findings on the clean controls.
 | PyPI | `sca/pypi/requirements.txt` | PyYAML | 5.3.1 | GHSA-8q59-q68h-6hv4 | CVE-2020-14343 | Critical | 5.4 |
 | PyPI | `sca/pypi/requirements.txt` | Django | 4.2.14 | GHSA-pv4p-cwwg-4rph | CVE-2024-42005 | Critical | 4.2.15 |
 | PyPI | `sca/pypi/requirements.txt` | Jinja2 | 2.10.0 | GHSA-462w-v97r-4m45 | CVE-2019-10906 | High | 2.10.1 |
+| PyPI | `sca/pypi/requirements.txt` | urllib3 | 1.26.17 | GHSA-34jh-p97f-mpxf | CVE-2024-37891 | Medium | 1.26.19 |
 | PyPI | `sca/pypi/pyproject.toml` | PyYAML, Jinja2 | same | as above | | | second manifest format |
 | Maven | `sca/maven/pom.xml` | org.apache.logging.log4j:log4j-core | 2.14.1 | GHSA-jfh8-c2jp-5v3q | CVE-2021-44228 | Critical | 2.15.0 (clean: 2.17.1) |
 | Maven | `sca/maven/pom.xml` | com.fasterxml.jackson.core:jackson-databind | 2.13.0 | GHSA-rmj7-2vxq-3g9f | CVE-2026-54513 | High | 2.18.8 |
