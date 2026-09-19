@@ -19,7 +19,8 @@ findings on the clean controls.
 | Maven | `sca/maven/pom.xml` | org.apache.logging.log4j:log4j-core | 2.14.1 | GHSA-jfh8-c2jp-5v3q | CVE-2021-44228 | Critical | 2.15.0 (clean: 2.17.1) |
 | Maven | `sca/maven/pom.xml` | log4j:log4j | 1.2.17 | GHSA-2qrg-x229-3v8q | CVE-2019-17571 | Critical | none (1.x is EOL) |
 | Maven | `sca/maven/pom.xml` | com.fasterxml.jackson.core:jackson-databind | 2.13.0 | GHSA-rmj7-2vxq-3g9f | CVE-2026-54513 | High | 2.18.8 |
-| Gradle | `sca/gradle/build.gradle` | same two | same | as above | | | second manifest format |
+| Maven | `sca/maven/pom.xml` | org.springframework:spring-beans | 5.3.17 | GHSA-36p3-wjmg-h94x | CVE-2022-22965 | Critical | 5.3.18 |
+| Gradle | `sca/gradle/build.gradle` | log4j-core + jackson-databind | same | as above | | | second manifest format |
 | Go | `sca/go/go.mod` | github.com/gin-gonic/gin | v1.7.6 | GHSA-h395-qcrw-5vmq | CVE-2020-28483 | High | v1.7.7 |
 | Go | `sca/go/go.mod` | gopkg.in/yaml.v3 | v3.0.0-2021... | GHSA-hp87-p4gw-j4gq | CVE-2022-28948 | High | v3.0.1 |
 | RubyGems | `sca/rubygems/Gemfile` | rack | 2.2.22 | GHSA-8vqr-qjwx-82mw | CVE-2026-34829 | High | 2.2.23 |
