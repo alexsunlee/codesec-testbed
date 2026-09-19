@@ -5,8 +5,9 @@
   "description": "npm manifest with deliberately vulnerable dependencies (SCA fixture)",
   "license": "Apache-2.0",
   "dependencies": {
+    "express": "4.18.2",
+    "jquery": "3.4.1",
     "lodash": "4.17.20",
-    "minimist": "1.2.5",
-    "express": "4.18.2"
+    "minimist": "1.2.5"
   }
 }

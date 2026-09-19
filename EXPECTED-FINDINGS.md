@@ -5,12 +5,13 @@ Database (reviewed advisories only) as of 2026-09-19. Use this to diff a scan
 result against what was actually planted - both for missed findings and for
 findings on the clean controls.
 
-## SCA - 9 ecosystems, 18 planted vulnerable packages
+## SCA - 9 ecosystems, 19 planted vulnerable packages
 
 | Ecosystem | File | Package | Pinned | GHSA | CVE | Severity | Fixed in |
 |---|---|---|---|---|---|---|---|
 | npm | `sca/npm/package.json` | lodash | 4.17.20 | GHSA-35jh-r3h4-6jhm | CVE-2021-23337 | High | 4.17.21 |
 | npm | `sca/npm/package.json` | minimist | 1.2.5 | GHSA-xvch-5gv4-984h | CVE-2021-44906 | Critical | 1.2.6 |
+| npm | `sca/npm/package.json` | jquery | 3.4.1 | GHSA-gxr4-xjj5-5px2 | CVE-2020-11022 | Medium | 3.5.0 |
 | PyPI | `sca/pypi/requirements.txt` | PyYAML | 5.3.1 | GHSA-8q59-q68h-6hv4 | CVE-2020-14343 | Critical | 5.4 |
 | PyPI | `sca/pypi/requirements.txt` | Django | 4.2.14 | GHSA-pv4p-cwwg-4rph | CVE-2024-42005 | Critical | 4.2.15 |
 | PyPI | `sca/pypi/requirements.txt` | Jinja2 | 2.10.0 | GHSA-462w-v97r-4m45 | CVE-2019-10906 | High | 2.10.1 |
