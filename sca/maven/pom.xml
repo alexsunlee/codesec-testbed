@@ -24,5 +24,14 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.13.0</version>
     </dependency>
+
+    <!-- GHSA-36p3-wjmg-h94x  CVE-2022-22965  critical  (Spring4Shell)
+         vulnerable: < 5.3.18 (5.2.x: < 5.2.20.RELEASE)   fixed: 5.3.18
+         also matched by GHSA-hh26-6xwr-ggv7  CVE-2022-22970  high -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>5.3.17</version>
+    </dependency>
   </dependencies>
 </project>
