@@ -54,6 +54,22 @@ To exercise the hosted path instead, connect the repository through
 **Settings -> Code security -> Integrate code scanning** and pick the Git
 provider integration.
 
+### In CI
+
+`.github/workflows/` carries the official `lacework/code-security-action`
+integration in both modes. `lacework-code-security-pr.yml` scans the head and
+its parent on every pull request and comments the alerts the PR introduces;
+`lacework-code-security-push.yml` scans `main` on push and on a daily cron,
+and is the one that populates the repository's branch view under
+*Investigation -> Code security -> Repositories*. Without the push workflow
+the repository never shows up there at all.
+
+Both need `LW_ACCOUNT`, `LW_API_KEY` and `LW_API_SECRET` as repository or
+organisation secrets (plus `LW_SUBACCOUNT` where sub-accounts are in use).
+`LW_ACCOUNT` is everything to the left of `.lacework.net` in the console
+hostname, which for a non-production environment is more than one label:
+`dev5qatest.dev5.corp.lacework.net` means `LW_ACCOUNT=dev5qatest.dev5.corp`.
+
 ## What it deliberately does not cover
 
 Container images and hosts. Those are not repository surfaces; they belong to

@@ -1,0 +1,52 @@
+# Runs FortiCNAPP Code Security on every pull request and comments the alerts
+# that the PR *introduces* (new vs old), rather than the repository's whole
+# backlog. This is the official lacework/code-security-action integration.
+#
+# Requires repository (or org) secrets:
+#   LW_ACCOUNT     account subdomain WITHOUT the trailing .lacework.net
+#                  e.g. dev5qatest.dev5.corp  ->  dev5qatest.dev5.corp.lacework.net
+#   LW_API_KEY     from Settings -> API keys
+#   LW_API_SECRET
+#   LW_SUBACCOUNT  only when the account uses sub-accounts
+name: lacework code security (PR)
+
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  LW_ACCOUNT: ${{ secrets.LW_ACCOUNT }}
+  LW_SUBACCOUNT: ${{ secrets.LW_SUBACCOUNT }}
+  LW_API_KEY: ${{ secrets.LW_API_KEY }}
+  LW_API_SECRET: ${{ secrets.LW_API_SECRET }}
+
+jobs:
+  run-analysis:
+    runs-on: ubuntu-latest
+    name: run analysis
+    strategy:
+      matrix:
+        # "new" is the PR head, "old" is its parent; the difference is what
+        # gets reported as introduced by this PR.
+        target: [new, old]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: check out the parent commit
+        if: ${{ matrix.target == 'old' }}
+        run: git checkout HEAD^1
+      - uses: lacework/code-security-action@v1
+        with:
+          target: ${{ matrix.target }}
+
+  display-results:
+    runs-on: ubuntu-latest
+    name: display results
+    needs: [run-analysis]
+    steps:
+      - uses: lacework/code-security-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

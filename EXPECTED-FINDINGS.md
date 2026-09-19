@@ -17,6 +17,7 @@ findings on the clean controls.
 | PyPI | `sca/pypi/requirements.txt` | urllib3 | 1.26.17 | GHSA-34jh-p97f-mpxf | CVE-2024-37891 | Medium | 1.26.19 |
 | PyPI | `sca/pypi/pyproject.toml` | PyYAML, Jinja2 | same | as above | | | second manifest format |
 | Maven | `sca/maven/pom.xml` | org.apache.logging.log4j:log4j-core | 2.14.1 | GHSA-jfh8-c2jp-5v3q | CVE-2021-44228 | Critical | 2.15.0 (clean: 2.17.1) |
+| Maven | `sca/maven/pom.xml` | log4j:log4j | 1.2.17 | GHSA-2qrg-x229-3v8q | CVE-2019-17571 | Critical | none (1.x is EOL) |
 | Maven | `sca/maven/pom.xml` | com.fasterxml.jackson.core:jackson-databind | 2.13.0 | GHSA-rmj7-2vxq-3g9f | CVE-2026-54513 | High | 2.18.8 |
 | Maven | `sca/maven/pom.xml` | org.springframework:spring-beans | 5.3.17 | GHSA-36p3-wjmg-h94x | CVE-2022-22965 | Critical | 5.3.18 |
 | Gradle | `sca/gradle/build.gradle` | log4j-core + jackson-databind | same | as above | | | second manifest format |
