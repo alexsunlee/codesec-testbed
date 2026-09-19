@@ -1,0 +1,11 @@
+[package]
+name = "codesec-testbed-rust"
+version = "1.0.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[dependencies]
+# GHSA-wcg3-cvx6-7396  CVE-2020-26235  medium  -> fixed in 0.2.23
+time = "=0.2.22"
+# GHSA-55m5-whcv-c49c  CVE-2018-25023  high    -> fixed in 0.6.13
+smallvec = "=0.6.12"

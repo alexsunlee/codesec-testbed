@@ -1,0 +1,11 @@
+// Same ecosystem as Maven, different manifest format.
+plugins { id 'java' }
+group = 'net.lacework.codesec'
+version = '1.0.0'
+repositories { mavenCentral() }
+dependencies {
+    // GHSA-jfh8-c2jp-5v3q  CVE-2021-44228  critical  -> fixed in 2.15.0
+    implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
+    // GHSA-rmj7-2vxq-3g9f  CVE-2026-54513  high      -> fixed in 2.18.8
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+}

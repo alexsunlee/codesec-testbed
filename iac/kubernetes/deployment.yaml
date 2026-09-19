@@ -1,0 +1,69 @@
+# IaC fixture - Kubernetes. Planted misconfigurations:
+#   privileged container, runs as root, host network and host PID,
+#   hostPath mount of the docker socket, mutable :latest tag,
+#   no resource limits, no probes, secret passed as a plain env var.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codesec-testbed-api
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: codesec-testbed-api }
+  template:
+    metadata:
+      labels: { app: codesec-testbed-api }
+    spec:
+      hostNetwork: true
+      hostPID: true
+      containers:
+        - name: api
+          image: nginx:latest
+          securityContext:
+            privileged: true
+            runAsUser: 0
+            allowPrivilegeEscalation: true
+            readOnlyRootFilesystem: false
+          env:
+            - name: DB_PASSWORD
+              value: "Pa55w0rd-CODESECTESTBED"
+          volumeMounts:
+            - name: docker-socket
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: docker-socket
+          hostPath:
+            path: /var/run/docker.sock
+---
+# The same workload hardened, for false-positive checking.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codesec-testbed-api-hardened
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: codesec-testbed-api-hardened }
+  template:
+    metadata:
+      labels: { app: codesec-testbed-api-hardened }
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: api
+          image: nginx:1.27.2@sha256:0000000000000000000000000000000000000000000000000000000000000000
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 500m, memory: 512Mi }
+          livenessProbe:
+            httpGet: { path: /healthz, port: 8080 }

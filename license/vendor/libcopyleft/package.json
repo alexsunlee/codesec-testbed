@@ -1,0 +1,7 @@
+{
+  "name": "libcopyleft",
+  "version": "2.4.0",
+  "description": "Vendored third-party library declaring a strong copyleft licence",
+  "license": "GPL-3.0-only",
+  "main": "index.js"
+}

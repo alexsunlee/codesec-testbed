@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+# GHSA-8vqr-qjwx-82mw  CVE-2026-34829  high  -> fixed in 2.2.23
+gem "rack", "2.2.22"
+# GHSA-c4rq-3m3g-8wgx  CVE-2026-79770  high  -> fixed in 1.19.3
+gem "nokogiri", "1.19.2"

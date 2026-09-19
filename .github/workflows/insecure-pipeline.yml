@@ -1,0 +1,43 @@
+# CI/CD posture fixture.
+#
+# INERT BY DESIGN: every job below is guarded with `if: false`, so nothing in
+# this file ever executes. The misconfigurations are in the static definition,
+# which is what a posture scanner reads.
+#
+# Planted issues:
+#   * pull_request_target combined with a checkout of the PR head - gives fork
+#     code access to a privileged token (the "pwn request" pattern)
+#   * actions pinned to a mutable ref (@master, @v1) instead of a commit SHA
+#   * write-all permissions at workflow level
+#   * untrusted pull-request text interpolated straight into a run block,
+#     which is shell injection into the runner
+#   * a long-lived cloud credential in repository secrets rather than OIDC
+name: insecure pipeline (fixture, never runs)
+
+on:
+  pull_request_target:
+    branches: [main]
+
+permissions: write-all
+
+jobs:
+  build:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out the pull request head with a privileged token
+        uses: actions/checkout@master
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: untrusted input interpolated into a shell
+        run: |
+          echo "Building ${{ github.event.pull_request.title }}"
+
+      - name: static cloud credentials instead of OIDC
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws s3 ls
+
+      - uses: docker/build-push-action@v1

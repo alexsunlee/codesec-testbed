@@ -1,0 +1,10 @@
+# Second PyPI manifest format. A scanner that only reads requirements.txt
+# will silently miss this file - that is exactly what it is here to prove.
+[project]
+name = "codesec-testbed-pypi"
+version = "1.0.0"
+license = { text = "Apache-2.0" }
+dependencies = [
+  "PyYAML==5.3.1",     # GHSA-8q59-q68h-6hv4
+  "Jinja2==2.10.0",    # GHSA-462w-v97r-4m45
+]
