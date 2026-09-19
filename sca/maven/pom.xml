@@ -24,5 +24,17 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.13.0</version>
     </dependency>
+
+    <!-- GHSA-2qrg-x229-3v8q  CVE-2019-17571  critical  (Log4j 1.x, EOL)
+         SocketServer deserialises untrusted input -> RCE. The 1.x line was
+         never patched, so there is no fixed version; 2.17.1+ is the way out.
+         Same pin also matches CVE-2022-23305 and CVE-2022-23307 (critical),
+         CVE-2021-4104 (JMSAppender, the 1.x analogue of Log4Shell),
+         CVE-2022-23302 and CVE-2023-26464. -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
   </dependencies>
 </project>
