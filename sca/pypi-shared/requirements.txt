@@ -1,0 +1,2 @@
+# COD-6670 fixture: a requests version that another repository in the test account also uses, with empty fix fields
+requests==2.20.0       # GHSA-j8r2-6x86-q33q  CVE-2023-32681  medium    -> fixed in 2.31.0
