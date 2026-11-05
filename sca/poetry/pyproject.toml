@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "multipart-fixture"
+version = "1.0.0"
+description = ""
+authors = []
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.26"
+idna = "~3.4"

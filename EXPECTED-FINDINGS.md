@@ -37,6 +37,28 @@ not resolved the tree.
 **Clean control:** `requests==2.31.0` and `express@4.18.2` are pinned clean at the
 top level.
 
+## SCA QA fixtures - SCA 0.1.114 (November 2026)
+
+Added to check the November SCA fixes end to end (hosted scan, pics-worker,
+sbom, UI). Each folder targets one ticket. "Before" is what SCA 0.1.112 and the
+earlier pics-worker and sbom images report.
+
+| Folder | Ticket | Expected with SCA 0.1.114 | Before |
+|---|---|---|---|
+| `sca/maven-multi-module/` | COD-7411 | Packages from both POMs: guava 33.2.1-jre (parent) and commons-lang3 3.14.0 (`module-a`), plus guava's transitive dependencies | No packages: the module POM path did not resolve, so the whole project failed to parse |
+| `sca/bazel/WORKSPACE` | COD-7412 | 3 Maven packages (guava, junit 4.13.2, commons-lang3 3.14.0) and 2 Go packages (golang.org/x/text v0.14.0, github.com/pkg/errors v0.9.1) | One package per language |
+| `sca/poetry/` | COD-7413 | `requests` (`^2.26`) and `idna` (`~3.4`) both tagged direct | `idna` tagged transitive: Poetry `^` and `~` constraints were dropped |
+| `sca/composer/` (existing) | COD-7414 | Packages declared in `composer.json` tagged direct | Direct inferred from the lock graph only |
+| `sca/cargo-workspace/` | COD-7417 | `regex` 1.5.4 (declared by `util`) and `smallvec` 1.6.0 (declared by `app`) tagged direct | Tagged transitive: workspace manifests were skipped |
+| `sca/cargo-path-deps/` | COD-7416 | In `b-consumer`, the `regex` 1.5.4 vulnerability (CVE-2022-24713) has a dependency path through `testbed-shared` | No dependency path: `testbed-shared` was resolved to `a-shared`, which is scanned first |
+| `sca/pnpm-v9/` | COD-6900, COD-5789 | Named npm packages from a `lockfileVersion: '9.0'` lockfile, including the `is-negative` tarball; no `Invalid purl` errors in sbom or pics-server | Tarball reported as `pkg:npm/@<version>`, registry entries missing |
+| `sca/maven-transitive/` | COD-4322 | Transitive vulnerabilities (e.g. snakeyaml 1.33, CVE-2022-1471) found in `pom.xml` lines 8-12, the `spring-boot-starter` dependency | No "Found in" line. This is a pics-worker fix, so only scans ingested after the deploy show it |
+| `sca/pypi-shared/` | COD-6670 | Components, requests: one row for 2.20.0, also when another repository's scan of 2.20.0 has empty fix fields | One row per distinct fix and license value |
+| Existing manifests (`sca/pypi`, `sca/npm`, `sca/cargo`, `sca/rubygems`) | COD-7022 | Vulnerabilities of declared dependencies are reported at their manifest line | Lock-file line |
+
+`sca/pypi-shared/` makes `requests` vulnerable in this repo, so the clean
+control above applies to `sca/pypi/` only.
+
 ## SAST - 11 planted flaws
 
 | File | Function | CWE | Class |
