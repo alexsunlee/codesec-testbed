@@ -40,7 +40,7 @@ top level.
 ## SCA QA fixtures - SCA 0.1.114 (November 2026)
 
 Added to check the November SCA fixes end to end (hosted scan, pics-worker,
-sbom, UI). Each folder targets one ticket. "Before" is what SCA 0.1.112 and the
+sbom, UI). A pull request against `main` rescans both branches. Each folder targets one ticket. "Before" is what SCA 0.1.112 and the
 earlier pics-worker and sbom images report.
 
 | Folder | Ticket | Expected with SCA 0.1.114 | Before |
