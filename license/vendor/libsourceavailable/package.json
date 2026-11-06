@@ -1,0 +1,7 @@
+{
+  "name": "libsourceavailable",
+  "version": "4.0.1",
+  "description": "Vendored third-party library under a source-available, non-OSI licence",
+  "license": "SSPL-1.0",
+  "main": "index.js"
+}
