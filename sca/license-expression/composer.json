@@ -1,0 +1,10 @@
+{
+  "name": "lacework-dev/codesec-testbed-license-expression",
+  "description": "SCA fixture for COD-7424 and COD-5783: one dependency with 64 alternative licenses",
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=8.1",
+    "testbed/plain-mit": "1.0.0",
+    "testbed/many-licenses": "1.0.0"
+  }
+}
