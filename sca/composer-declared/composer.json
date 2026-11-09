@@ -1,0 +1,10 @@
+{
+  "name": "lacework-dev/codesec-testbed-composer-declared",
+  "description": "SCA fixture for COD-7414: guzzlehttp/psr7 is declared here and also required by guzzlehttp/guzzle",
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=7.2.5",
+    "guzzlehttp/guzzle": "7.4.0",
+    "guzzlehttp/psr7": "1.8.3"
+  }
+}

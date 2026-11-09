@@ -1,0 +1,51 @@
+{
+    "_readme": [
+        "SCA fixture for COD-7414. guzzlehttp/psr7 1.8.3 (CVE-2022-24775, fixed in 1.8.4) is declared",
+        "in composer.json and is also required by guzzlehttp/guzzle 7.4.0, so it must stay direct.",
+        "guzzlehttp/promises and psr/http-message are only required by other packages: transitive."
+    ],
+    "content-hash": "00000000000000000000000000007414",
+    "packages": [
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "7.4.0",
+            "require": {
+                "php": "^7.2.5 || ^8.0",
+                "guzzlehttp/promises": "^1.5",
+                "guzzlehttp/psr7": "^1.8.3 || ^2.1"
+            },
+            "type": "library",
+            "license": ["MIT"]
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "1.5.1",
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "license": ["MIT"]
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.8.3",
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "type": "library",
+            "license": ["MIT"]
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "license": ["MIT"]
+        }
+    ],
+    "packages-dev": [],
+    "platform": { "php": ">=7.2.5" }
+}
