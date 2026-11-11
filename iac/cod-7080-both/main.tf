@@ -3,3 +3,8 @@ resource "aws_s3_bucket" "cod_7080_both" {
   bucket = "cod-7080-fixture-both"
   acl    = "public-read"
 }
+
+# Re-run with the final codesecbot image (c724457).
+resource "aws_s3_bucket" "cod_7080_both_final" {
+  bucket = "cod-7080-both-final"
+}
