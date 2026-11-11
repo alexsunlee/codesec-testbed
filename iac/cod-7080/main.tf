@@ -23,3 +23,8 @@ resource "aws_s3_bucket" "cod_7080_iac_fails_2" {
 resource "aws_s3_bucket" "cod_7080_iac_fails_3" {
   bucket = "cod-7080-fixture-iac-fails-3"
 }
+
+# Re-run with the final codesecbot image (c724457).
+resource "aws_s3_bucket" "cod_7080_head_final" {
+  bucket = "cod-7080-head-final"
+}
