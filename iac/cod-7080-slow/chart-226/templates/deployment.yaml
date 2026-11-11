@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-226
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: slow-226
+  template:
+    metadata:
+      labels:
+        app: slow-226
+    spec:
+      containers:
+        - name: web
+          image: {{ .Values.image }}
