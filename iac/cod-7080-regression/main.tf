@@ -9,3 +9,8 @@ resource "aws_s3_bucket" "cod_7080_regression" {
 resource "aws_s3_bucket" "cod_7080_regression_evict" {
   bucket = "cod-7080-regression-evict"
 }
+
+# Re-run with the final codesecbot image (c724457).
+resource "aws_s3_bucket" "cod_7080_regression_final" {
+  bucket = "cod-7080-regression-final"
+}
