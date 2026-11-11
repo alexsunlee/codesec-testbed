@@ -3,3 +3,8 @@ resource "aws_s3_bucket" "cod_7080_iac" {
   bucket = "cod-7080-fixture-iac"
   acl    = "public-read"
 }
+
+# Second push: IaC is skipped while the SCA step really fails (its pod is evicted on both attempts).
+resource "aws_s3_bucket" "cod_7080_iac_sca_fails" {
+  bucket = "cod-7080-fixture-iac-sca-fails"
+}
