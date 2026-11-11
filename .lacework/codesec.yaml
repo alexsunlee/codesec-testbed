@@ -1,0 +1,4 @@
+# COD-7080 fixture: SCA is disabled on this branch, IaC stays on.
+default:
+  sca:
+    enabled: false
