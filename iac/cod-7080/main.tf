@@ -8,3 +8,8 @@ resource "aws_s3_bucket" "cod_7080" {
 resource "aws_s3_bucket" "cod_7080_rerun" {
   bucket = "cod-7080-fixture-rerun"
 }
+
+# Third push: SCA is skipped while the IaC step really fails (its pod is evicted on both attempts).
+resource "aws_s3_bucket" "cod_7080_iac_fails" {
+  bucket = "cod-7080-fixture-iac-fails"
+}
