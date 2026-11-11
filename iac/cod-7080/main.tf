@@ -13,3 +13,8 @@ resource "aws_s3_bucket" "cod_7080_rerun" {
 resource "aws_s3_bucket" "cod_7080_iac_fails" {
   bucket = "cod-7080-fixture-iac-fails"
 }
+
+# Fourth push: same case again, the IaC pod is force-deleted on both attempts.
+resource "aws_s3_bucket" "cod_7080_iac_fails_2" {
+  bucket = "cod-7080-fixture-iac-fails-2"
+}
