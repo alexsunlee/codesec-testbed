@@ -1,0 +1,3 @@
+# COD-6967 dev5 check. This folder is covered by a codespace-scoped path exception
+# (sca/cod6967-e2e/excluded/**), so the finding below must not be reported.
+Flask==0.12.2          # GHSA-562c-5r94-xh97  CVE-2018-1000656  high  -> fixed in 0.12.3

@@ -1,0 +1,3 @@
+# COD-6967 dev5 check. Control: no exception covers this folder, so the finding below
+# must be reported.
+paramiko==2.4.0        # GHSA-232r-66cg-79px  CVE-2018-7750  critical  -> fixed in 2.4.1
