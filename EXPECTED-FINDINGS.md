@@ -54,7 +54,7 @@ earlier pics-worker and sbom images report.
 | `sca/pnpm-v9/` | COD-6900, COD-5789 | Named npm packages from a `lockfileVersion: '9.0'` lockfile, including the `is-negative` tarball; no `Invalid purl` errors in sbom or pics-server | Tarball reported as `pkg:npm/@<version>`, registry entries missing |
 | `sca/maven-transitive/` | COD-4322 | Transitive vulnerabilities (e.g. snakeyaml 1.33, CVE-2022-1471) found in `pom.xml` lines 8-12, the `spring-boot-starter` dependency | No "Found in" line. This is a pics-worker fix, so only scans ingested after the deploy show it |
 | `sca/pypi-shared/` | COD-6670 | Components, requests: one row for 2.20.0, also when another repository's scan of 2.20.0 has empty fix fields | One row per distinct fix and license value |
-| Existing manifests (`sca/pypi`, `sca/npm`, `sca/cargo`, `sca/rubygems`) | COD-7022 | Vulnerabilities of declared dependencies are reported at their manifest line | Lock-file line |
+| Existing manifests (`sca/pypi`, `sca/npm`, `sca/cargo`, `sca/rubygems`) | COD-7022, COD-7431 | Vulnerabilities of declared dependencies are reported at their manifest line, in the SARIF and the PR comment (COD-7022) and on the Vulnerabilities and Components pages (COD-7431, a pics-worker fix) | Lock-file line |
 
 `sca/pypi-shared/` makes `requests` vulnerable in this repo, so the clean
 control above applies to `sca/pypi/` only.
