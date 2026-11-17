@@ -24,3 +24,8 @@ resource "aws_security_group" "this" {
 resource "aws_s3_bucket" "flow_logs" {
   bucket = "${var.name}-flow-logs"
 }
+
+module "db" {
+  source = "../database"
+  name   = var.name
+}

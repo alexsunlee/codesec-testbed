@@ -11,3 +11,8 @@ module "kms" {
   source = "../kms"
   name   = var.name
 }
+
+module "db" {
+  source = "../database"
+  name   = var.name
+}
