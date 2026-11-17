@@ -1,0 +1,12 @@
+env               = "env0"
+cluster_name      = "cluster0"
+account_id        = "000000000000"
+region            = "us-west-2"
+namespace         = "apps"
+oidc_provider_arn = "arn:aws:iam::000000000000:oidc-provider/oidc.example.invalid/id/EXAMPLE0"
+oidc_issuer       = "oidc.example.invalid/id/EXAMPLE0"
+log_retention     = "30"
+bucket_arns = ["arn:aws:example:us-west-2:000000000000:bucket_arns-0", "arn:aws:example:us-west-2:000000000000:bucket_arns-1", "arn:aws:example:us-west-2:000000000000:bucket_arns-2", "arn:aws:example:us-west-2:000000000000:bucket_arns-3"]
+kms_key_arns = ["arn:aws:example:us-west-2:000000000000:kms_key_arns-0", "arn:aws:example:us-west-2:000000000000:kms_key_arns-1", "arn:aws:example:us-west-2:000000000000:kms_key_arns-2", "arn:aws:example:us-west-2:000000000000:kms_key_arns-3"]
+table_arns = ["arn:aws:example:us-west-2:000000000000:table_arns-0", "arn:aws:example:us-west-2:000000000000:table_arns-1", "arn:aws:example:us-west-2:000000000000:table_arns-2", "arn:aws:example:us-west-2:000000000000:table_arns-3"]
+queue_arns = ["arn:aws:example:us-west-2:000000000000:queue_arns-0", "arn:aws:example:us-west-2:000000000000:queue_arns-1", "arn:aws:example:us-west-2:000000000000:queue_arns-2", "arn:aws:example:us-west-2:000000000000:queue_arns-3"]
