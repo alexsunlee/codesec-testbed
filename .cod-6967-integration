@@ -1,1 +1,1 @@
-COD-6967 R5 check: rescan main with its codesec.yaml (2026-11-18). Do not merge.
+COD-6967 R5 check: rescan main after removing the codesec.yaml (2026-11-18). Do not merge.
