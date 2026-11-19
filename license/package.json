@@ -1,0 +1,11 @@
+{
+  "name": "codesec-testbed-license",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Resolved dependencies whose licences a policy engine has to classify (License fixture)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "highcharts": "13.1.0",
+    "jszip": "3.10.2"
+  }
+}
