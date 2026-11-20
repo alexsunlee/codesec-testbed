@@ -8,3 +8,4 @@ authors = []
 python = "^3.8"
 requests = "^2.26"
 idna = "~3.6"
+urllib3 = "2.2.2"

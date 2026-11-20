@@ -14,6 +14,14 @@ python-versions = ">=3.7"
 
 [package.dependencies]
 idna = ">=2.5,<4"
+urllib3 = ">=1.21.1,<3"
+
+[[package]]
+name = "urllib3"
+version = "2.2.2"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+optional = false
+python-versions = ">=3.8"
 
 [metadata]
 lock-version = "2.0"
