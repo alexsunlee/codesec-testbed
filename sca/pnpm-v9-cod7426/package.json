@@ -1,0 +1,14 @@
+{
+  "name": "pnpm-v9",
+  "version": "1.0.0",
+  "dependencies": {
+    "@babel/runtime": "7.20.0",
+    "loose-envify": "1.4.0",
+    "is-negative": "https://codeload.github.com/zkochan/is-negative/tar.gz/2fa0531ab04e300a24ef4fd7fb3a280eccb7ccc5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "is-number": "7.0.0"
+  }
+}
