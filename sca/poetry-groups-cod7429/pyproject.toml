@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "example"
+version = "0.1.0"
+description = ""
+authors = ["fixture"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0"
+pytest-cov = "^5.0"
+urllib3 = "^2.2"
