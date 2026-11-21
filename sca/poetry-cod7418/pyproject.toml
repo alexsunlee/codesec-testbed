@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "poetry-cod7418"
+version = "1.0.0"
+description = "COD-7418: requests has its own CVE and its child urllib3 has others"
+authors = []
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "2.19.1"
