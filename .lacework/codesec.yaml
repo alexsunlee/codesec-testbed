@@ -2,5 +2,5 @@ default:
   sca:
     enabled: true
     pullRequest:
-      statusCheck: any
-      statusComments: all
+      statusCheck: medium
+      statusComments: medium
