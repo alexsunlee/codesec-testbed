@@ -1,0 +1,4 @@
+# COD-6658 dev5 check: packages whose CVEs span critical, high, medium and low,
+# so the PR comment shows which severities each statusComments threshold keeps.
+pycrypto==2.6.1
+Werkzeug==2.2.2
